@@ -8,8 +8,8 @@ try:
     import resource
 
     _PAGESIZE = resource.getpagesize()
-except ImportError:
-    # Not Unix
+except (ImportError, AttributeError):
+    # Not Unix, or there's a resource module on a non-Unix system, see 
     _PAGESIZE = 4096
 
 
